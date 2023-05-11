@@ -111,14 +111,12 @@ vector<unsigned int> SXORRSA::generate_keypair()
     unsigned int phi = (this->getP() - 1) * (this->getQ() - 1);
     unsigned int e = 0;
     unsigned int d = 0;
-
-    // ���������� �������� ����
+    
     while (true) {
         e = generate_prime(2, phi - 1);
         if (gcd(e, phi) == 1) break;
     }
-
-    // ��������� ��������� ����
+    
     unsigned int k = 1;
     while (true) {
         k += phi;
@@ -129,9 +127,9 @@ vector<unsigned int> SXORRSA::generate_keypair()
     }
 
 
-    keys.push_back(e); // �������� ����
-    keys.push_back(d); // ��������� ����
-    keys.push_back(n); // ������
+    keys.push_back(e);
+    keys.push_back(d);
+    keys.push_back(n);
 
     return keys;
 }
